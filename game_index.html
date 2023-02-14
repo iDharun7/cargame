@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="game_style.css" />
+    <title>Car Game</title>
+  </head>
+  <body>
+    <div class="wrapper">
+
+<div class="start-screen">
+  <section>
+    <h1>Back to the Future</h1>
+    <p>click to play</p>
+    <p class="note">Built in Chrome.</p>
+  </section>
+</div>
+
+<div class="overlay intro">
+  <section class="intro">
+    <h1>Back to the Future</h1>
+    <p>Get Marty back to 1985.</p>
+    
+    <h2>Controls</h2>
+    <ul class="controls">
+      <li>&larr;</li>
+      <li>&rarr;</li>
+    </ul>
+    
+    <h2>Items</h2>
+    <h3>Collect</h3><h3>Avoid</h3>
+    <ul class="items">
+      <li><div class="item lightning active" data-stage="1" data-lane="1"></div></li>
+      <li><div class="item almanac" data-stage="2" data-lane="2"></div></li>
+      <li><div class="item logs" data-stage="3" data-lane="3">1</div></li>
+      <li><div class="item oil obstacle active" data-stage="1" data-lane="1"></div></li>
+      <li><div class="item cloud obstacle" data-stage="2" data-lane="2"></div></li>
+      <li><div class="item cactus obstacle" data-stage="3" data-lane="3"></div></li>
+    </ul>
+    
+    <button class="start">Start</button>
+  </section>
+  
+  <section class="win">
+    <h2>Perfect. My experiment worked.</h2>
+    <p>You got Marty back to 1985.</p>
+    <button class="continue">Continue to Stage <span>2</span></button>
+  </section>
+  
+  <section class="lose">
+    <h2>Great scott.</h2>
+    <p>You didn't get Marty back to 1985.</p>
+    <button class="reset">Try again</button>
+  </section>
+</div>
+
+<div class="game-wrap">
+  <div class="mute"></div>
+  
+  <div class="hud">
+    <div class="speedometer">0</div>
+    
+    <ul class="clock">
+      <li class="stage">Stage <span>1</span></li>
+      <li class="destination">Dest. Time: <span>1985</span></li>
+      <li class="present">Pres. Time: <span>1955</span></li>
+    </ul>
+    
+    <div class="flux">0<span>%</span></div>
+  </div>
+  
+  <div class="countdown" data-count="3"></div>
+
+  <div class="road"></div>
+  <div class="time-machine" data-lane="2"></div>
+</div>
+
+<audio id="soundtrack" src="http://joshuabader.com/drop/bttf/bttf.mp3" loop />
+<audio id="beep-low" src="http://joshuabader.com/drop/bttf/beep-low.mp3" />
+<audio id="beep-high" src="http://joshuabader.com/drop/bttf/beep-high.mp3" />
+<audio id="power-up" src="http://joshuabader.com/drop/bttf/power-up.mp3" />
+<audio id="buzz" src="http://joshuabader.com/drop/bttf/buzz.mp3" />
+<audio id="zap" src="http://joshuabader.com/drop/bttf/zap.mp3" />
+<audio id="fail" src="http://joshuabader.com/drop/bttf/fail.mp3" />
+
+<!-- filters -->
+
+<svg height="0" xmlns="http://www.w3.org/2000/svg">
+  <filter id="flat-shadow">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="0"/>
+    <feOffset dx="3" dy="3" result="offsetblur"/>
+    <feFlood flood-color="rgba(0,0,0,0.3)"/>
+    <feComposite in2="offsetblur" operator="in"/>
+    <feMerge>
+      <feMergeNode/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+</svg>
+
+</div>
+    <script src="game_function.js"></script>
+  </body>
+  </html>
